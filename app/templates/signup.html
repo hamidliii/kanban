@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Sign Up Page</title>
+    <!-- Making the page responsive-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Connecting to CSS for styling-->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Section for sign up container-->
+    <div class="auth">
+        <h1 class="auth__title">Sign Up</h1>
+        <p class="auth__text">Please fill in your information to create an account</p>
+
+        <hr>
+
+        <!-- Form to sign up via username and password-->
+        <form method="POST" action="/signup">
+            <input class="auth__input" type="text" placeholder="Enter Username" name="username" required>
+
+            <input class="auth__input" type="password" placeholder="Enter Password" name="password" required>
+
+            <input class="auth__input" type="password" placeholder="Re-enter Password" name="re-enter" required>
+
+            <hr>
+
+            <input class="button button--submit" type="submit" value="Sign Up">
+        </form>
+
+        <!--Display error if wrong type is inputed-->
+        {% if error %}
+        <p class="auth__text"><strong>Error:</strong> {{ error }} {% endif %}
+
+        <!-- Section to redirect too registration page-->
+        <div class="container signin">
+            <p class="auth__text">Already have an account?</p>
+            <form method="GET" action="/signin">
+                <input class="button button--submit" width=120px type="submit" value="Sign In">
+            </form>
+            <!-- End section to redirect too registration page-->
+        </div>
+        <!-- End section for sign up container-->
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,14 @@
+.auth {
+    margin: 0px;
+    padding: 0px;
+    background: $light-pink;
+    height: 100%;
+
+    &__title {
+        color: $dark-pink;
+        text-align: center;
+        font-family: Arial;
+        font-weight: normal;
+        padding-top: 2em;
+    }
+}

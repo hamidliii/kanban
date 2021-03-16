@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+        <!-- Making the page responsive-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Simple Kanban Board</title>
+
+        <!-- Connecting to CSS for styling-->
+        <link rel="stylesheet" href="./css/style.css">
+
+</head>
+
+<header class="header">
+    <!-- Display the authenticated user's name-->
+    {% if current_user.is_authenticated %}
+    <!-- Show logout button-->
+    <form class="header__logout" method="POST" action="/logout" align="right">
+        <input class="button button-submit" type="submit" value="Logout">
+    </form>
+    <h2 class="margin-small">{{current_user.username}}'s Simple Kanban Board</h2>
+    <!-- Display today's date -->
+    <h5>
+        <script type="text/javascript">
+            var today = new Date();
+            document.write("Date: " + today.toDateString());
+        </script>
+    </h5>
+
+    {% endif %}
+</header>
+
+<body>
+    <div class="add-todo">
+        <h2>What is your task for today?</h2>
+        <!-- Add new task to the board-->
+        <form class="add-todo__form" method="POST" action="/main">
+            <!-- Add required attrciube to prohibit empty submissions -->
+            <input class="add-todo__form--title" type="text" name="title" required>
+            <!-- Add status selction option-->
+            <select class="add-todo__form--status" name="status"> 
+                    <option>TODO</option> 
+                    <option>In progress</option> 
+                    <option>Completed</option> 
+                </select>
+            <!-- Add submit button to add the new task-->
+            <input class="button button--wide" type="submit" value="Add">
+        </form>
+        <!-- Add error message-->
+        <% if error %>
+            <p class="error"><strong>Error:</strong>{{ error }}</p>
+            {% endif %}
+    </div>
+
+    <!-- Add the Kanban Board sections: TODO, In Progress and Completed-->
+    <section>
+        <div class="kanban">
+            <!-- Container for TODO section-->
+            <div class="kanban__wrapper kanban__wrapper--todo">
+                <h2>TODO</h2>
+
+                <!-- Move TODO to In Progress section-->
+                <table>
+                    {% for task in todo %}
+                    <tr>
+                        <td>
+                            <!-- Enabling the tasks to be sortable: drag from one section to another -->
+                            <ul class="kanban__sortable">
+                                <li class="kanban__card" width="35">{{ task.title }}</li>
+                            </ul>
+                        </td>
+                        <!-- Form to update the status of a TODO task to In Progress-->
+                        <td>
+                            <form class="update-status" method="POST" action="./update">
+                                <input type="hidden" value="{{ task.title }}" name="name">
+                                <input type="hidden" value="progress" name="newstatus">
+                                <input type="submit" value="&#9989">
+                            </form>
+                        </td>
+                        <!--Delete a task-->
+                        <td>
+                            <form class="update-status" method="POST" action="./delete">
+                                <input type="hidden" value="{{ task.title }}" name="title">
+                                <input type="submit" value="&#10060">
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                <!--End TODO section-->
+            </div>
+
+            <!-- Container for In Progress section-->
+            <div class="kanban__wrapper kanban__wrapper--progress">
+                <h2>In Progress</h2>
+                <table>
+                    {% for task in progress %}
+                    <tr>
+                        <td>
+                            <!-- Enabling the tasks to be sortable: drag from one section to another -->
+                            <ul class="kanban__sortable">
+                                <li class="kanban__card" width=35> {{ task.title }}</li>
+                            </ul>
+                        </td>
+
+                        <!-- Form to update the status of a In Progress task to Completed -->
+                        <td>
+
+                            <form class="update-status" method="POST" action="./update">
+                                <input type="hidden" value="{{ task.title }}" name="name">
+                                <input type="hidden" value="todo" name="newstatus">
+                                <input type="submit" value="&#9194">
+                            </form>
+
+                            <!-- Form to update the status of a In Progress task to Completed -->
+                            <form class="update-status" method="POST" action="./update">
+                                <input type="hidden" value="{{task.title}}" name="name">
+                                <input type="hidden" value="done" name="newstatus">
+                                <input type="submit" value="&#9989">
+                            </form>
+                        </td>
+
+                        <!--Delete a task-->
+                        <td>
+                            <form class="update-status" method="POST" action="./delete">
+                                <input type="hidden" value="{{ task.title }}" name="title">
+                                <input type="submit" value="&#10060">
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+
+                <!--End In progress section-->
+            </div>
+
+            <!-- Container for Completed section-->
+            <div class="kanban__wrapper kanban__wrapper--completed">
+                <h2>Completed</h2>
+                <table>
+                    {% for task completed %}
+                    <tr>
+                        <td>
+                            <!-- Enabling the tasks to be sortable: drag from one section to another -->
+                            <ul class="kanban__sortable">
+                                <li class="kanban__card" width=35> {{ task.title }}</li>
+                            </ul>
+                        </td>
+
+                        <!-- Form to update the status of a Completed task to In Progress -->
+                        <td>
+
+                            <form class="update-status" method="POST" action="./update">
+                                <input type="hidden" value="{{ task.title }}" name="name">
+                                <input type="hidden" value="progress" name="newstatus">
+                                <input type="submit" value="&#9194">
+                            </form>
+                        </td>
+
+                        <!--Delete a task-->
+                        <td>
+                            <form class="update-status" method="POST" action="./delete">
+                                <input type="hidden" value="{{ task.title }}" name="title">
+                                <input type="submit" value="&#10060">
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                <!--End Completed section-->
+            </div>
+            <!-- End Kanban Board space-->
+        </div>
+        <!-- End Kanban board section-->
+    </section>
+</body>
+
+</html>

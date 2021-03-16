@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Sing In Page</title>
+    <!-- Making the page responsive-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Connecting to CSS for styling-->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Section for sign in container-->
+    <div class="auth">
+        <h1 class="auth__title">Sign in to view your Kanban Board</h1>
+        <!-- Form to sign in via username and password-->
+        <form class="auth__form" action="" method="POST">
+            <input class="auth__input" type="text" placeholder="Username" name="username" value="{{ request.form.username }}">
+            <input class="auth__input" type="password" placeholder="Password" name="password" value="{{ request.form.password }}">
+            <input class="button button--submit" type="submit" value="Sign In">
+        </form>
+
+        <!--Display error if wrong type is inputed-->
+        {% if error %}
+        <p class="auth__text"><strong>Error:</strong> {{error}} {% endif %}
+            <!-- Section to redirct too registration page-->
+            <div>
+                <form method="GET" action="/signup">
+                    <input class="button button--submit" width=120px type="submit" value="Registration">
+                </form>
+                <!-- End section for sign up redirection-->
+            </div>
+            <!-- End section for sign in container-->
+    </div>
+</body>
+
+</html>

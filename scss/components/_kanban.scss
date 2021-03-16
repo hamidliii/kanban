@@ -1,0 +1,52 @@
+.kanban {
+    padding: 1px;
+    text-align: center;
+    color: $dark-pink;
+
+    &__wrapper {
+        width: 31.5%;
+        float: left;
+        clear: right;
+        margin: 10px;
+        border-radius: 5px;
+        border: 1px solid $dark-red;
+
+        &--todo {
+            background-color: $light-orange;
+        }
+
+        &--progress {
+            background-color: $light-yellow;
+        }
+
+        &--completed {
+            background-color: $light-green;
+        }
+    }
+
+    &__sortable {
+        list-style-type: none;
+        margin: 0;
+        padding: 1px;
+        min-height: 30px;
+        border-radius: 5px;
+        box-sizing: content-box;
+
+        & li {
+            color: $dark-pink;
+            list-style-type: none;
+            width: 250px;
+            margin: 3px 3px 3px 3px;
+            padding: 0.4em;
+            padding-left: 1.5em;
+            font-size: 1.4em;
+            height: 18px;
+        }
+    }
+
+    &__card {
+        background-color: #f4f9f9;
+        border: 1px solid $dark-red;
+        border-radius: 5px;
+    }
+}

@@ -1,0 +1,79 @@
+.add-todo {
+    text-align: center;
+    color: $dark-pink;
+
+    &__form {
+        display: inline;
+        &--title {
+            display: inline;
+            width: 309px;
+            height: 25px;
+            margin: 15px auto;
+            background-color: #f9c0c0;
+            border: 0px;
+            padding: 5px;
+            font-size: 16px;
+            border: 2px solid #aa5f5f;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+        }
+
+        &--status {
+            display: inline;
+            width: 120px;
+            height: 35px;
+            margin: 15px auto;
+            background: #f9c0c0;
+            border: 0px;
+            padding: 5px;
+            font-size: 16px;
+            border: 2px solid #aa5f5f;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+        }
+    }
+}
+
+.update-status {
+    display: inline;
+}
+
+.auth {
+    &__form {
+        width: 400px;
+        height: 230px;
+        margin: 0px auto;
+        padding-top: 20px;
+    }
+
+    &__input {
+        display: block;
+        width: 309px;
+        height: 35px;
+        margin: 15px auto;
+        background: $yellow;
+        padding: 5px;
+        font-size: 16px;
+        border: 1px solid $dark-pink;
+        transition: all 0.3s ease;
+        border-radius: 5px;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+    }
+
+    &__text {
+        text-align: center;
+        font-family: Arial;
+        color: #f4f9f9;
+        display: block;
+        color: $dark-pink;
+        margin: 15px auto;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 20px;
+    }
+}

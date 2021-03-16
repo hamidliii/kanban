@@ -1,0 +1,190 @@
+.margin-small {
+  margin: 5px;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+.header {
+  background-color: #f9c0c0;
+  padding: 5px;
+  text-align: center;
+  font-size: 35px;
+  color: #8b5353;
+  border: 1px solid #aa5f5f;
+}
+.header__logout {
+  display: inline;
+}
+
+.add-todo {
+  text-align: center;
+  color: #8b5353;
+}
+.add-todo__form {
+  display: inline;
+}
+.add-todo__form--title {
+  display: inline;
+  width: 309px;
+  height: 25px;
+  margin: 15px auto;
+  background-color: #f9c0c0;
+  border: 0px;
+  padding: 5px;
+  font-size: 16px;
+  border: 2px solid #aa5f5f;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+.add-todo__form--status {
+  display: inline;
+  width: 120px;
+  height: 35px;
+  margin: 15px auto;
+  background: #f9c0c0;
+  border: 0px;
+  padding: 5px;
+  font-size: 16px;
+  border: 2px solid #aa5f5f;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+.update-status {
+  display: inline;
+}
+
+.auth__form {
+  width: 400px;
+  height: 230px;
+  margin: 0px auto;
+  padding-top: 20px;
+}
+.auth__input {
+  display: block;
+  width: 309px;
+  height: 35px;
+  margin: 15px auto;
+  background: #ffd384;
+  padding: 5px;
+  font-size: 16px;
+  border: 1px solid #8b5353;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+.auth__text {
+  text-align: center;
+  font-family: Arial;
+  color: #f4f9f9;
+  display: block;
+  color: #8b5353;
+  margin: 15px auto;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 20px;
+}
+
+.button {
+  cursor: pointer;
+  background: #ffd384;
+  width: fit-content;
+  padding: 4px;
+  border: 2px solid #aa5f5f;
+  margin: auto;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+.button--wide {
+  display: block;
+  width: 100px;
+}
+.button--submit {
+  display: block;
+  width: 115px;
+  padding: 8px;
+  font-size: 17px;
+}
+
+.kanban {
+  padding: 1px;
+  text-align: center;
+  color: #8b5353;
+}
+.kanban__wrapper {
+  width: 31.5%;
+  float: left;
+  clear: right;
+  margin: 10px;
+  border-radius: 5px;
+  border: 1px solid #aa5f5f;
+}
+.kanban__wrapper--todo {
+  background-color: #f6d6ad;
+}
+.kanban__wrapper--progress {
+  background-color: #fafcc2;
+}
+.kanban__wrapper--completed {
+  background-color: #ccf6c8;
+}
+.kanban__sortable {
+  list-style-type: none;
+  margin: 0;
+  padding: 1px;
+  min-height: 30px;
+  border-radius: 5px;
+  box-sizing: content-box;
+}
+.kanban__sortable li {
+  color: #8b5353;
+  list-style-type: none;
+  width: 250px;
+  margin: 3px 3px 3px 3px;
+  padding: 0.4em;
+  padding-left: 1.5em;
+  font-size: 1.4em;
+  height: 18px;
+}
+.kanban__card {
+  background-color: #f4f9f9;
+  border: 1px solid #aa5f5f;
+  border-radius: 5px;
+}
+
+.auth {
+  margin: 0px;
+  padding: 0px;
+  background: #f9c0c0;
+  height: 100%;
+}
+.auth__title {
+  color: #8b5353;
+  text-align: center;
+  font-family: Arial;
+  font-weight: normal;
+  padding-top: 2em;
+}
+
+/*# sourceMappingURL=style.css.map */
