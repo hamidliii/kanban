@@ -51,12 +51,6 @@ $ export FLASK_APP=run.py
 $ flask run
 ```
 
-5. Alternative way of running:
-```bash
-$ cd kanban
-$ python run.py
-```
-
 ### Unit tests
 #### Run unit tests
 To run tests, while being in project's directory, run the following command:

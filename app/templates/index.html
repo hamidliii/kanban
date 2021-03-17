@@ -10,7 +10,7 @@
         <title>Simple Kanban Board</title>
 
         <!-- Connecting to CSS for styling-->
-        <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
 </head>
 
@@ -42,15 +42,15 @@
             <input class="add-todo__form--title" type="text" name="title" required>
             <!-- Add status selction option-->
             <select class="add-todo__form--status" name="status"> 
-                    <option>TODO</option> 
-                    <option>In progress</option> 
-                    <option>Completed</option> 
-                </select>
+                <option selected value="todo">TODO</option>
+                <option value="progress">In progress</option>
+                <option value="done">Completed</option>
+            </select>
             <!-- Add submit button to add the new task-->
             <input class="button button--wide" type="submit" value="Add">
         </form>
         <!-- Add error message-->
-        <% if error %>
+        {% if error %}
             <p class="error"><strong>Error:</strong>{{ error }}</p>
             {% endif %}
     </div>
@@ -141,7 +141,7 @@
             <div class="kanban__wrapper kanban__wrapper--completed">
                 <h2>Completed</h2>
                 <table>
-                    {% for task completed %}
+                    {% for task in completed %}
                     <tr>
                         <td>
                             <!-- Enabling the tasks to be sortable: drag from one section to another -->
