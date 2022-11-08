@@ -8,19 +8,19 @@ Simple Kanban Board is created to perform basic features of Kanban Board such as
 5. Authenticating as a user (Login)
 6. Logging out while saving the session credentials
 
-The Kanban Board is personlalized meaning that people can create their own Kanban boards and no-one else can view those Kanban boards.
+The Kanban Board is personlalized meaning that people can create their own Kanban boards and no one else can view those Kanban boards.
 
 ## Structure of app
 
 The root directory consists of the following files:
 
-- `test.py`  - some unittests based on the covered topics.
+- `test.py`  -  unit tests.
 - `requirements.txt` - the required packages for the project.
 - `run.py`  - gets the app to run.
 
 The `app` folder contains the application files:
 
-- `__init__.py` - the configuration and initializes the app.
+- `__init__.py` - the configuration and initialization of the app.
 - `api.py` - routes for the navigation in the frontend pages.
 - `models.py`  - connecting the database and the app.
 - `templates/` is a folder which contains HTML templates.
